@@ -15,6 +15,44 @@
  */
 
 #include "helix.h"
+#ifdef RGB_MATRIX_ENABLE
+led_config_t g_led_config = {
+  {
+  // Key Matrix to LED Index
+      { 5, 4, 3, 2, 1, 0},\
+      { 6, 7, 8, 9, 10, 11,},\
+      {17, 16, 15, 14, 13, 12},\
+      {18, 19, 20, 21, 22, 23},\
+      {24, 25, 26, 27, 28, 29},\
+      {35, 34, 33, 32, 31, 30},\
+      {36, 37, 38, 39, 40, 41},\
+      {47, 46, 45, 44, 43, 42}\
+  },
+  {
+    // LED Index to Physical Position
+          /*    0    */ /*    1    */ /*    2    */ 
+/*  0 */ { 113,   0 }, {   90,   0 }, { 68,   0 }, {  45,   0 }, {  22,   0 }, {   0,   0 },\
+/*  1 */ {   0,  21 }, {   22,  21 }, { 45,  21 }, {  68,  21 }, {  90,  21 }, { 113,  21 },\
+/*  2 */ { 113,  42 }, {   90,  42 }, { 68,  42 }, {  45,  42 }, {  22,  42 }, {   0,  42 },\
+/*  3 */ {   0,  64 }, {   22,  64 }, { 45,  64 }, {  68,  64 }, {  90,  64 }, { 113,  64 },\
+/*  0 */ { 255,   0 }, {  224,   0 }, {202,   0 }, { 180,   0 }, { 157,   0 }, { 135,   0 },\
+/*  1 */ { 135,  21 }, {  157,  21 }, {180,  21 }, { 202,  21 }, { 224,  21 }, { 255,  21 },\
+/*  2 */ { 255,  42 }, {  224,  42 }, {202,  42 }, { 180,  42 }, { 157,  42 }, { 135,  42 },\
+/*  3 */ { 135,  64 }, {  157,  64 }, {180,  64 }, { 202,  64 }, { 224,  64 }, { 255,  64 }\
+  },
+  {
+    // LED Index to Flag    asdfgbbbbbb     bbb   bbbgggtttgggbbb     nnnnhhhyyyhhhnnnn   
+    LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT,
+    LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT,
+    LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT,
+    LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, 
+    LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT,
+    LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT,
+    LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT,
+    LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT,    
+  }
+};
+#endif  
 
 bool is_mac_mode(void) {
     return keymap_config.swap_lalt_lgui == false;
