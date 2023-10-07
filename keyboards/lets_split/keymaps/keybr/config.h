@@ -23,16 +23,18 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // place overrides here
 
 /* Use I2C or Serial, not both */
-// #define USE_SERIAL
+#define USE_SERIAL
+//defined in info.json
+//#define SOFT_SERIAL_PIN D0
 #define FLIP_HALF
-#define USE_I2C
-#define IGNORE_MOD_TAP_INTERRUPT
-#define IGNORE_MOD_TAP_INTERRUPT_PER_KEY
+// #define USE_I2C
+#define HOLD_ON_OTHER_KEY_PRESS_PER_KEY
 #define TAPPING_TERM_PER_KEY
 // 200 is default
 #define TAPPING_TERM 200
 
 /* Select hand configuration */
+#define SPLIT_USB_DETECT
 #define MASTER_LEFT
 // #define MASTER_RIGHT
 // #define EE_HANDS
